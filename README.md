@@ -59,5 +59,5 @@ Track income/expenses, view a live-updating dashboard, and manage your savings g
 
 ## 📬 Contact
 
-**Your Name** - [LinkedIn](https://linkedin.com/in/...) - [your@email.com](mailto:your@email.com)
+**Aayush Gurung** - [LinkedIn](https://linkedin.com/in/AayushGurung) - [nabin.laghey.official@email.com](mailto:your@email.com)
 
