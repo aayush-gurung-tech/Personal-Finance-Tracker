@@ -5,8 +5,17 @@ const loginpassword = document.querySelector("#loginpassword");
 const loginemail = document.querySelector("#loginemail");
 const signupForm = document.querySelector("#signup-form");
 const loginForm = document.querySelector("#login-form");
-const loggedUserEmail = localStorage.getItem("loggedUserEmail");
-if (loggedUserEmail && (signupForm || loginForm)) location.href = "dashboard.html";
+
+function redirectIfLoggedIn() {
+  const loggedUserEmail = localStorage.getItem("loggedUserEmail");
+  if (loggedUserEmail && (signupForm || loginForm)) location.replace("dashboard.html");
+}
+
+redirectIfLoggedIn();
+window.addEventListener("pageshow", () => {
+  redirectIfLoggedIn();
+});
+
 function getuserdetails() {
   if (!username || !useremail || !password) return;
   const userdetail = {

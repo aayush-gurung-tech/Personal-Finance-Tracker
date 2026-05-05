@@ -5,7 +5,7 @@ Track income/expenses, view a live-updating dashboard, and manage your savings g
 
 🔗 **Live Demo:** [flux-finance-tracker.netlify.app](https://flux-finance-tracker.netlify.app/)
 
-![Demo](./finance%20tracker/asserts/logo.png)
+![Demo](![landing page of the project](image-2.png))
 
 ## ✨ Features
 
@@ -27,11 +27,11 @@ Track income/expenses, view a live-updating dashboard, and manage your savings g
 
 ## 📸 Screenshots
 
-![Landing](./finance%20tracker/asserts/logo.png)
+![Landing](![landing page](image.png))
 
-![Dashboard](./finance%20tracker/asserts/logo.png)
+![Dashboard](![dashboard page](image-1.png))
 
-![Transactions](./finance%20tracker/asserts/logo.png)
+
 
 ## 🚀 How to Run Locally
 
