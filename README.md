@@ -3,7 +3,7 @@
 A clean, modern personal finance tracker built with vanilla HTML, CSS, and JavaScript.
 Track income/expenses, view a live-updating dashboard, and manage your savings goals.
 
-🔗 **Live Demo:** [flux-finance-tracker.netlify.app](https://YOUR-LIVE-DEMO-LINK/)
+🔗 **Live Demo:** [flux-finance-tracker.netlify.app](https://flux-finance-tracker.netlify.app/)
 
 ![Demo](./finance%20tracker/asserts/logo.png)
 
