@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Flux Finance</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+  </head>
+  <body class="dash-body">
+    <header class="dash-header">
+      <div class="container dash-header-row">
+        <a class="brand" href="index.html" aria-label="Flux Finance Home">
+          <span class="brand-mark" aria-hidden="true">
+            <i class="fa-solid fa-wave-square"></i>
+          </span>
+          <span class="brand-name">Flux Finance</span>
+        </a>
+        <div class="dash-header-actions">
+          <a class="btn btn-ghost" href="login.html">Logout</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="dash-page">
+      <div class="container dash">
+        <aside class="dash-side">
+          <div class="dash-brand">
+            <span class="brand-mark" aria-hidden="true">
+              <i class="fa-solid fa-wave-square"></i>
+            </span>
+            <span>FLUX FINANCE</span>
+          </div>
+          <a class="dash-link active" href="dashboard.html">
+            <i class="fa-solid fa-grid-2"></i>Dashboard
+          </a>
+          <a class="dash-link" href="transactions.html">
+            <i class="fa-solid fa-arrow-right-arrow-left"></i>Transactions
+          </a>
+          <a class="dash-link" href="goals.html">
+            <i class="fa-solid fa-flag"></i>Goals
+          </a>
+          <a class="dash-link" href="settings.html">
+            <i class="fa-solid fa-gear"></i>Settings
+          </a>
+          <a class="dash-btn" href="add-transaction.html">
+            <i class="fa-solid fa-plus"></i>Add Transaction
+          </a>
+        </aside>
+
+        <section class="dash-main">
+          <div class="dash-page-title">
+            <div class="muted small">Welcome back</div>
+            <div class="dash-title">Sarah</div>
+          </div>
+
+          <div class="dash-top">
+            <div></div>
+            <div class="dash-search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" placeholder="Search transactions..." />
+            </div>
+          </div>
+
+          <div class="dash-kpis">
+            <div class="kpi kpi-blue">
+              <div class="muted small">Total Balance</div>
+              <div class="kpi-value" id="total-balance">$0.00</div>
+              <div class="kpi-sub" id="total-balance-sub">Add transactions to update</div>
+            </div>
+            <div class="kpi kpi-green">
+              <div class="muted small">Monthly Income</div>
+              <div class="kpi-value" id="monthly-income">$0.00</div>
+              <div class="kpi-sub" id="monthly-income-sub">Last 30 days</div>
+            </div>
+            <div class="kpi kpi-red">
+              <div class="muted small">Monthly Expenses</div>
+              <div class="kpi-value" id="monthly-expense">$0.00</div>
+              <div class="kpi-sub" id="monthly-expense-sub">Last 30 days</div>
+            </div>
+          </div>
+
+          <div class="dash-grid">
+            <div class="panel">
+              <div class="panel-head">
+                <h3>Spending by Category</h3>
+              </div>
+              <div class="donut-row">
+                <div class="donut"></div>
+                <div class="legend" id="category-legend"></div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-head">
+                <h3>Cash Flow (Last 30 Days)</h3>
+                <div class="panel-tags">
+                  <span class="tag"><span class="dot dot-b"></span>Income</span>
+                  <span class="tag"><span class="dot dot-c"></span>Expense</span>
+                </div>
+              </div>
+              <div class="line-chart"></div>
+            </div>
+
+            <div class="panel wide">
+              <div class="panel-head">
+                <h3>Recent Transactions</h3>
+                <a class="link" href="transactions.html">View all</a>
+              </div>
+              <div class="table">
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>

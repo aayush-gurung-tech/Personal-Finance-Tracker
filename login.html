@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Flux Finance</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="brand" href="index.html" aria-label="Flux Finance Home">
+          <span class="brand-mark" aria-hidden="true">
+            <i class="fa-solid fa-wave-square"></i>
+          </span>
+          <span class="brand-name">Flux Finance</span>
+        </a>
+        <div class="header-actions">
+          <a class="btn btn-ghost" href="index.html">Back</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="auth-page">
+      <div class="container auth-wrap">
+        <div class="auth-card">
+          <div class="auth-stack">
+            <div class="auth-title">Login</div>
+            <form id="login-form" method="post">
+              <label class="field">
+                <span>Email</span>
+                <input
+                  type="email"
+                  placeholder="you@example.com"
+                  id="loginemail"
+                  required
+                />
+              </label>
+              <label class="field">
+                <span>Password</span>
+                <input
+                  type="password"
+                  placeholder="••••••••"
+                  id="loginpassword"
+                  required
+                />
+              </label>
+              <button class="btn btn-primary"  type="submit">
+                Login
+              </button>
+              <div class="muted small">
+                New here?
+                <a class="link" href="signup.html">Create an account</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="js/auth.js"></script>
+    
+  </body>
+</html>

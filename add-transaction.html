@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Transaction - Flux Finance</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+  </head>
+  <body class="dash-body">
+    <header class="dash-header">
+      <div class="container dash-header-row">
+        <a class="brand" href="index.html" aria-label="Flux Finance Home">
+          <span class="brand-mark" aria-hidden="true">
+            <i class="fa-solid fa-wave-square"></i>
+          </span>
+          <span class="brand-name">Flux Finance</span>
+        </a>
+        <div class="dash-header-actions">
+          <a class="btn btn-ghost" href="login.html">Logout</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="dash-page">
+      <div class="container dash">
+        <aside class="dash-side">
+          <div class="dash-brand">
+            <span class="brand-mark" aria-hidden="true">
+              <i class="fa-solid fa-wave-square"></i>
+            </span>
+            <span>FLUX FINANCE</span>
+          </div>
+          <a class="dash-link" href="dashboard.html"
+            ><i class="fa-solid fa-grid-2"></i>Dashboard</a
+          >
+          <a class="dash-link" href="transactions.html"
+            ><i class="fa-solid fa-arrow-right-arrow-left"></i>Transactions</a
+          >
+          <a class="dash-link" href="goals.html"
+            ><i class="fa-solid fa-flag"></i>Goals</a
+          >
+          <a class="dash-link" href="settings.html"
+            ><i class="fa-solid fa-gear"></i>Settings</a
+          >
+          <a class="dash-btn" href="add-transaction.html"
+            ><i class="fa-solid fa-plus"></i>Add Transaction</a
+          >
+        </aside>
+
+        <section class="dash-main">
+          <div class="dash-page-title">
+            <div class="muted small">Transactions</div>
+            <div class="dash-title">Add Transaction</div>
+          </div>
+
+          <div class="panel mt12">
+            <div class="panel-head">
+              <h3>New Transaction</h3>
+              <a class="btn btn-ghost" href="transactions.html">Back</a>
+            </div>
+            <form class="simple-form">
+              <label class="field">
+                <span>Date</span>
+                <input type="date" id="dateid" required />
+              </label>
+              <label class="field">
+                <span>Description</span>
+                <input type="text" class="description" placeholder="Uber" required />
+              </label>
+              <label class="field">
+                <span>Category</span>
+                <select class="Category" required>
+                  <option value="">Select</option>
+                  <option>🍔 Food &amp; Dining</option>
+                  <option>🚗 Transportation</option>
+                  <option>🏠 Housing/Rent</option>
+                  <option>💡 Utilities</option>
+                  <option>🛒 Shopping</option>
+                  <option>🎬 Entertainment</option>
+                  <option>💊 Healthcare</option>
+                  <option>📚 Education</option>
+                  <option>💼 Business</option>
+                  <option>✈️ Travel</option>
+                  <option>📱 Subscriptions</option>
+                  <option>🎁 Gifts</option>
+                  <option>💰 Savings</option>
+                  <option>🔧 Others</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Type</span>
+                <select class="select" required>
+                  <option value="">Select</option>
+                  <option>Income</option>
+                  <option>Expense</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Amount</span>
+                <input type="number" class="amount" placeholder="0" required />
+              </label>
+              <button class="btn btn-primary" type="submit">Save</button>
+            </form>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="js/add-transaction.js"></script>
+  </body>
+</html>

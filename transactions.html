@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transactions - Flux Finance</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+  </head>
+  <body class="dash-body">
+    <header class="dash-header">
+      <div class="container dash-header-row">
+        <a class="brand" href="index.html" aria-label="Flux Finance Home">
+          <span class="brand-mark" aria-hidden="true">
+            <i class="fa-solid fa-wave-square"></i>
+          </span>
+          <span class="brand-name">Flux Finance</span>
+        </a>
+        <div class="dash-header-actions">
+          <a class="btn btn-ghost" href="login.html">Logout</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="dash-page">
+      <div class="container dash">
+        <aside class="dash-side">
+          <div class="dash-brand">
+            <span class="brand-mark" aria-hidden="true">
+              <i class="fa-solid fa-wave-square"></i>
+            </span>
+            <span>FLUX FINANCE</span>
+          </div>
+          <a class="dash-link" href="dashboard.html"
+            ><i class="fa-solid fa-grid-2"></i>Dashboard</a
+          >
+          <a class="dash-link active" href="transactions.html"
+            ><i class="fa-solid fa-arrow-right-arrow-left"></i>Transactions</a
+          >
+          <a class="dash-link" href="goals.html"
+            ><i class="fa-solid fa-flag"></i>Goals</a
+          >
+          <a class="dash-link" href="settings.html"
+            ><i class="fa-solid fa-gear"></i>Settings</a
+          >
+          <a class="dash-btn" href="add-transaction.html"
+            ><i class="fa-solid fa-plus"></i>Add Transaction</a
+          >
+        </aside>
+
+        <section class="dash-main">
+          <div class="dash-page-title">
+            <div class="muted small">Transactions</div>
+            <div class="dash-title">Recent activity</div>
+          </div>
+
+          <div class="panel mt12">
+            <div class="panel-head">
+              <h3>Recent Transactions</h3>
+              <div>
+                <a class="btn btn-ghost" href="add-transaction.html"
+                  ><i class="fa-solid fa-plus"></i>Add</a
+                >
+                <button class="btn btn-ghost" id="export-transactions" type="button">
+                  <i class="fa-solid fa-file-export"></i>Export
+                </button>
+                <button class="btn btn-ghost" id="import-transactions" type="button">
+                  <i class="fa-solid fa-file-import"></i>Import
+                </button>
+                <button class="btn btn-ghost" id="clear-transactions" type="button">
+                  <i class="fa-solid fa-trash"></i>Clear
+                </button>
+                <input
+                  type="file"
+                  id="transactions-file"
+                  accept="application/json"
+                  style="display: none"
+                />
+              </div>
+            </div>
+            <div class="table">
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="js/transactions.js"></script>
+  </body>
+</html>

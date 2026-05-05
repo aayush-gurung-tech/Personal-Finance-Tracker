@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign up - Flux Finance</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/signup.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="brand" href="index.html" aria-label="Flux Finance Home">
+          <span class="brand-mark" aria-hidden="true">
+            <i class="fa-solid fa-wave-square"></i>
+          </span>
+          <span class="brand-name">Flux Finance</span>
+        </a>
+        <div class="header-actions">
+          <a class="btn btn-ghost" href="index.html">Back</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="auth-page">
+      <div class="container auth-wrap">
+        <div class="auth-card">
+          <div class="auth-stack">
+            <div class="auth-title">Create account</div>
+            <form id="signup-form" method="post">
+              <label class="field">
+                <span>Full name</span>
+                <input type="text" placeholder="Your name" id="username" required />
+              </label>
+              <label class="field">
+                <span>Email</span>
+                <input type="email" placeholder="you@example.com" id="useremail" required />
+              </label>
+              <label class="field">
+                <span>Password</span>
+                <input type="password" placeholder="Create password" id="password" required />
+              </label>
+              <button class="btn btn-primary" id="signup-btn" type="submit">Sign up</button>
+              <div class="muted small">
+                Already have an account? <a class="link" href="login.html">Login</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="js/auth.js"></script>
+  </body>
+</html>

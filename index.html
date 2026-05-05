@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flux Finance</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="brand" href="index.html" aria-label="Flux Finance Home">
+          <span class="brand-mark" aria-hidden="true">
+            <i class="fa-solid fa-wave-square"></i>
+          </span>
+          <span class="brand-name">Flux Finance</span>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <input class="nav-toggle" type="checkbox" id="nav-toggle" />
+          <label class="nav-toggle-btn" for="nav-toggle" aria-label="Toggle menu">
+            <i class="fa-solid fa-bars"></i>
+          </label>
+          <ul class="nav-list">
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#security">Security</a></li>
+            <li><a href="login.html">Dashboard</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <a class="btn btn-ghost" href="login.html">Login</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="overview" class="hero">
+        <div class="container hero-grid">
+          <div class="hero-text">
+            <h1 class="move">Take Control of</h1>
+            <h1 class="move delay-1">Your Wealth</h1>
+            <p class="lead move delay-2">
+              Automate personal finance tracking, budgets and insights with a clean
+              dashboard that feels effortless.
+            </p>
+            <div class="hero-cta move delay-3">
+              <a class="btn btn-primary" href="login.html">Get Started</a>
+              <a class="btn btn-ghost" href="#features">See Features</a>
+            </div>
+            <div class="hero-badges move delay-4">
+              <span class="badge"><i class="fa-solid fa-lock"></i> Secure</span>
+              <span class="badge"><i class="fa-solid fa-bolt"></i> Fast setup</span>
+              <span class="badge"
+                ><i class="fa-solid fa-chart-line"></i> Insights</span
+              >
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <div class="orb orb-a"></div>
+            <div class="orb orb-b"></div>
+            <div class="orb orb-c"></div>
+
+            <div class="glass card-mini card-mini-a">
+              <div class="mini-top">
+                <span class="mini-icon"
+                  ><i class="fa-solid fa-shield-halved"></i
+                ></span>
+                <span class="mini-title">Secure</span>
+              </div>
+              <div class="mini-bar"></div>
+              <div class="mini-bar thin"></div>
+            </div>
+
+            <div class="glass card-mini card-mini-b">
+              <div class="mini-top">
+                <span class="mini-icon"><i class="fa-solid fa-wallet"></i></span>
+                <span class="mini-title">Cash Flow</span>
+              </div>
+              <div class="mini-chart"></div>
+            </div>
+
+            <div class="glass card-mini card-mini-c">
+              <div class="mini-top">
+                <span class="mini-icon"><i class="fa-solid fa-chart-pie"></i></span>
+                <span class="mini-title">Budget</span>
+              </div>
+              <div class="mini-donut"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2>Features</h2>
+            <p class="muted">Everything you need to track, plan and grow.</p>
+          </div>
+
+          <div class="cards">
+            <article class="card">
+              <div class="card-icon"><i class="fa-solid fa-robot"></i></div>
+              <h3>Automated Tracking</h3>
+              <p class="muted">Quickly add expenses and keep everything organized.</p>
+            </article>
+            <article class="card">
+              <div class="card-icon"><i class="fa-solid fa-sliders"></i></div>
+              <h3>Smart Budgets</h3>
+              <p class="muted">Simple category budgets with clear warnings.</p>
+            </article>
+            <article class="card">
+              <div class="card-icon"><i class="fa-solid fa-shield-heart"></i></div>
+              <h3>Secure Insights</h3>
+              <p class="muted">Private by default with secure sign-in.</p>
+            </article>
+            <article class="card">
+              <div class="card-icon"><i class="fa-solid fa-bell"></i></div>
+              <h3>Alerts</h3>
+              <p class="muted">Get notified when spending patterns change.</p>
+            </article>
+            <article class="card">
+              <div class="card-icon"><i class="fa-solid fa-chart-simple"></i></div>
+              <h3>Reports</h3>
+              <p class="muted">Monthly summaries that are easy to understand.</p>
+            </article>
+            <article class="card">
+              <div class="card-icon"><i class="fa-solid fa-sparkles"></i></div>
+              <h3>Clean UI</h3>
+              <p class="muted">A calm interface built for daily use.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2>Pricing</h2>
+            <p class="muted">Start free, upgrade when you need more.</p>
+          </div>
+          <div class="cards pricing">
+            <article class="card price">
+              <h3>Starter</h3>
+              <div class="price-tag">$0 <span class="muted">/ month</span></div>
+              <ul class="list">
+                <li><i class="fa-solid fa-check"></i> Basic tracking</li>
+                <li><i class="fa-solid fa-check"></i> Budgets</li>
+                <li><i class="fa-solid fa-check"></i> Monthly report</li>
+              </ul>
+              <a class="btn btn-ghost" href="login.html">Create account</a>
+            </article>
+            <article class="card price featured">
+              <h3>Pro</h3>
+              <div class="price-tag">$9 <span class="muted">/ month</span></div>
+              <ul class="list">
+                <li><i class="fa-solid fa-check"></i> Unlimited categories</li>
+                <li><i class="fa-solid fa-check"></i> Advanced insights</li>
+                <li><i class="fa-solid fa-check"></i> Priority support</li>
+              </ul>
+              <a class="btn btn-primary" href="login.html">Start Pro</a>
+            </article>
+            <article class="card price">
+              <h3>Team</h3>
+              <div class="price-tag">$19 <span class="muted">/ month</span></div>
+              <ul class="list">
+                <li><i class="fa-solid fa-check"></i> Shared wallets</li>
+                <li><i class="fa-solid fa-check"></i> Roles & access</li>
+                <li><i class="fa-solid fa-check"></i> Exports</li>
+              </ul>
+              <a class="btn btn-ghost" href="login.html">Contact</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="security" class="section section-soft">
+        <div class="container">
+          <div class="section-head">
+            <h2>Security</h2>
+            <p class="muted">Simple, sensible defaults for everyday use.</p>
+          </div>
+          <div class="security">
+            <div class="security-card">
+              <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <div>
+                <h3>Protected sessions</h3>
+                <p class="muted">Secure sign-in with session controls.</p>
+              </div>
+            </div>
+            <div class="security-card">
+              <div class="card-icon"><i class="fa-solid fa-lock"></i></div>
+              <div>
+                <h3>Private by default</h3>
+                <p class="muted">Only you can see your personal data.</p>
+              </div>
+            </div>
+            <div class="security-card">
+              <div class="card-icon"><i class="fa-solid fa-file-shield"></i></div>
+              <div>
+                <h3>Safe exports</h3>
+                <p class="muted">Export reports in a clean format.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <div class="footer-brand">
+            <span class="brand-mark" aria-hidden="true">
+              <i class="fa-solid fa-wave-square"></i>
+            </span>
+            <span>Flux Finance</span>
+          </div>
+          <p class="muted">A clean UI starter for a personal finance tracker.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#security">Security</a>
+          <a href="login.html">Login</a>
+        </div>
+        <div class="footer-social">
+          <a aria-label="X (Twitter)" href="https://x.com/" target="_blank" rel="noopener noreferrer"
+            ><i class="fa-brands fa-twitter"></i
+          ></a>
+          <a aria-label="Instagram" href="https://instagram.com/" target="_blank" rel="noopener noreferrer"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a aria-label="GitHub" href="https://github.com/" target="_blank" rel="noopener noreferrer"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+          <a aria-label="LinkedIn" href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
+        </div>
+      </div>
+      <div class="container footer-bottom muted small">
+        <span>© 2026 Flux Finance</span>
+        <span>Made for your finance tracker</span>
+      </div>
+    </footer>
+  </body>
+</html>
