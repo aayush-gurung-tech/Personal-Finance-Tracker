@@ -1,5 +1,6 @@
 const logoutbtn = document.querySelector(".dash-header-actions a");
-const goalform = document.querySelector(".simple-form");
+const goalform = document.querySelector("#goal-form");
+const toggleGoalFormBtn = document.querySelector("#toggle-goal-form");
 const goalname = document.querySelector(".goal-name");
 const goalcategory = document.querySelector(".goal-category");
 const goaltarget = document.querySelector(".goal-target");
@@ -12,10 +13,11 @@ const exportbtn = document.querySelector("#export-goals");
 const importbtn = document.querySelector("#import-goals");
 const clearbtn = document.querySelector("#clear-goals");
 const fileinput = document.querySelector("#goals-file");
+const AUTH_KEY = "authUserEmail";
 
 function requireLogin() {
-  const useremaillogin = localStorage.getItem("loggedUserEmail");
-  if (!useremaillogin) location.href = "login.html";
+  const useremaillogin = sessionStorage.getItem(AUTH_KEY);
+  if (!useremaillogin) location.replace("login.html");
   return useremaillogin || "";
 }
 
@@ -23,8 +25,35 @@ function setlogout() {
   if (!logoutbtn) return;
   logoutbtn.addEventListener("click", (e) => {
     e.preventDefault();
-    localStorage.removeItem("loggedUserEmail");
-    location.href = "login.html";
+    localStorage.removeItem("loggedUserEmail"); // legacy key cleanup
+    sessionStorage.clear();
+    location.replace("login.html");
+  });
+}
+
+function installAuthGuards() {
+  const check = () => {
+    if (!sessionStorage.getItem(AUTH_KEY)) location.replace("login.html");
+  };
+  window.addEventListener("pageshow", check);
+  window.addEventListener("popstate", check);
+}
+
+function setGoalFormToggle() {
+  if (!toggleGoalFormBtn || !goalform) return;
+
+  const applyLabel = () => {
+    const open = !goalform.hidden;
+    toggleGoalFormBtn.innerHTML = open
+      ? `<i class="fa-solid fa-minus"></i>Hide Form`
+      : `<i class="fa-solid fa-plus"></i>Add Goal`;
+  };
+
+  applyLabel();
+  toggleGoalFormBtn.addEventListener("click", () => {
+    goalform.hidden = !goalform.hidden;
+    applyLabel();
+    if (!goalform.hidden) goalform.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 }
 
@@ -68,6 +97,8 @@ function renderGoals() {
       <div>Target</div>
       <div>Current</div>
       <div class="right">Monthly</div>
+      <div class="right">Remaining</div>
+      <div>Status</div>
       <div class="right">Action</div>
     </div>
   `;
@@ -82,6 +113,8 @@ function renderGoals() {
           <div>-</div>
           <div>-</div>
           <div class="right muted">$0.00</div>
+          <div class="right muted">$0.00</div>
+          <div>-</div>
         </div>
       `
     );
@@ -92,13 +125,21 @@ function renderGoals() {
     .slice()
     .reverse()
     .map((g) => {
+      const target = Number(g.target) || 0;
+      const current = Number(g.current) || 0;
+      const remaining = target - current;
+      const done = remaining <= 0;
+      const remainingClass = done ? "pos" : "neg";
+      const statusPill = done ? `<span class="pill ok">Completed</span>` : `<span class="pill wait">Active</span>`;
       return `
         <div class="t-row">
           <div>${g.name || ""}</div>
           <div>${g.category || ""}</div>
-          <div>$${formatMoney(g.target)}</div>
-          <div>$${formatMoney(g.current)}</div>
+          <div>$${formatMoney(target)}</div>
+          <div>$${formatMoney(current)}</div>
           <div class="right">$${formatMoney(g.monthly)}</div>
+          <div class="right ${remainingClass}">$${formatMoney(remaining)}</div>
+          <div>${statusPill}</div>
           <div class="right">
             <button class="btn btn-ghost delete-goal" data-id="${g.id || ""}" type="button">
               Delete
@@ -242,7 +283,9 @@ function saveGoal() {
 }
 
 requireLogin();
+installAuthGuards();
 setlogout();
+setGoalFormToggle();
 saveGoal();
 renderGoals();
 setDeleteHandler();

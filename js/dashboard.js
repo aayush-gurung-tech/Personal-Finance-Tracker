@@ -8,10 +8,11 @@ const totalBalanceSub = document.querySelector("#total-balance-sub");
 const monthlyIncomeSub = document.querySelector("#monthly-income-sub");
 const monthlyExpenseSub = document.querySelector("#monthly-expense-sub");
 const categoryLegend = document.querySelector("#category-legend");
+const AUTH_KEY = "authUserEmail";
 
 function requireLogin() {
-  const useremaillogin = localStorage.getItem("loggedUserEmail");
-  if (!useremaillogin) location.href = "login.html";
+  const useremaillogin = sessionStorage.getItem(AUTH_KEY);
+  if (!useremaillogin) location.replace("login.html");
   return useremaillogin || "";
 }
 
@@ -27,7 +28,7 @@ function formatMoney(value) {
 function setusername() {
   if (!username) return;
   const userdetail = JSON.parse(localStorage.getItem("userall")) || [];
-  const useremaillogin = localStorage.getItem("loggedUserEmail");
+  const useremaillogin = sessionStorage.getItem(AUTH_KEY);
 
   const user = userdetail.find((u) => useremaillogin === u.useremailvalue);
   if (!user) return;
@@ -39,9 +40,18 @@ function setlogout() {
   if (!logoutbtn) return;
   logoutbtn.addEventListener("click", (e) => {
     e.preventDefault();
-    localStorage.removeItem("loggedUserEmail");
-    location.href = "login.html";
+    localStorage.removeItem("loggedUserEmail"); // legacy key cleanup
+    sessionStorage.clear();
+    location.replace("login.html");
   });
+}
+
+function installAuthGuards() {
+  const check = () => {
+    if (!sessionStorage.getItem(AUTH_KEY)) location.replace("login.html");
+  };
+  window.addEventListener("pageshow", check);
+  window.addEventListener("popstate", check);
 }
 
 function setSearchFilter() {
@@ -198,6 +208,7 @@ function setCategoryLegend() {
 }
 
 requireLogin();
+installAuthGuards();
 setusername();
 setlogout();
 renderRecentTransactions();

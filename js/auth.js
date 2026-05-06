@@ -6,15 +6,7 @@ const loginemail = document.querySelector("#loginemail");
 const signupForm = document.querySelector("#signup-form");
 const loginForm = document.querySelector("#login-form");
 
-function redirectIfLoggedIn() {
-  const loggedUserEmail = localStorage.getItem("loggedUserEmail");
-  if (loggedUserEmail && (signupForm || loginForm)) location.replace("dashboard.html");
-}
-
-redirectIfLoggedIn();
-window.addEventListener("pageshow", () => {
-  redirectIfLoggedIn();
-});
+const AUTH_KEY = "authUserEmail";
 
 function getuserdetails() {
   if (!username || !useremail || !password) return;
@@ -58,8 +50,10 @@ function matchuser() {
       u.passwordvalue === loginuserdetail.password
   );
   if (user) {
-   localStorage.setItem("loggedUserEmail", user.useremailvalue);
-    location.href = "dashboard.html";
+    localStorage.removeItem("loggedUserEmail"); // legacy key cleanup
+    sessionStorage.clear(); // clear previous session data (transactions/goals/budgets)
+    sessionStorage.setItem(AUTH_KEY, user.useremailvalue);
+    location.replace("dashboard.html");
   } else {
     alert("your password and email dont match fix it");
   }

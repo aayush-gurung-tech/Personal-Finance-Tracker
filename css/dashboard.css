@@ -136,6 +136,37 @@
   background: #fff;
 }
 
+.budget-form {
+  max-width: none;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: end;
+}
+
+.budget-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.budget-table .t-row {
+  grid-template-columns: 1fr 110px 120px 120px 120px 120px 110px;
+  min-width: 900px;
+}
+
+.goals-table .t-row {
+  grid-template-columns: 1fr 1fr 120px 120px 120px 120px 120px 110px;
+  min-width: 980px;
+}
+
+.table.has-action .t-row {
+  grid-template-columns: 90px 1.2fr 1fr 120px 110px 110px;
+  min-width: 760px;
+}
+
+.pill.bad {
+  background: rgba(239, 68, 68, 0.12);
+  color: #b91c1c;
+}
+
 
 .dash-top {
   display: flex;
@@ -419,5 +450,11 @@
   }
   .donut-row {
     grid-template-columns: 1fr;
+  }
+  .budget-form {
+    grid-template-columns: 1fr;
+  }
+  .budget-actions {
+    justify-content: stretch;
   }
 }

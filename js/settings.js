@@ -1,10 +1,11 @@
 const logoutbtn = document.querySelector(".dash-header-actions a");
 const settingsform = document.querySelector(".simple-form");
-const nameInput = document.querySelector(".simple-form input");
+const nameInput = document.querySelector("#display-name");
+const AUTH_KEY = "authUserEmail";
 
 function requireLogin() {
-  const useremaillogin = localStorage.getItem("loggedUserEmail");
-  if (!useremaillogin) location.href = "login.html";
+  const useremaillogin = sessionStorage.getItem(AUTH_KEY);
+  if (!useremaillogin) location.replace("login.html");
   return useremaillogin || "";
 }
 
@@ -12,14 +13,23 @@ function setlogout() {
   if (!logoutbtn) return;
   logoutbtn.addEventListener("click", (e) => {
     e.preventDefault();
-    localStorage.removeItem("loggedUserEmail");
-    location.href = "login.html";
+    localStorage.removeItem("loggedUserEmail"); // legacy key cleanup
+    sessionStorage.clear();
+    location.replace("login.html");
   });
+}
+
+function installAuthGuards() {
+  const check = () => {
+    if (!sessionStorage.getItem(AUTH_KEY)) location.replace("login.html");
+  };
+  window.addEventListener("pageshow", check);
+  window.addEventListener("popstate", check);
 }
 
 function setInitialName() {
   if (!nameInput) return;
-  const useremaillogin = localStorage.getItem("loggedUserEmail");
+  const useremaillogin = sessionStorage.getItem(AUTH_KEY);
   if (!useremaillogin) return;
   const userdetail = JSON.parse(localStorage.getItem("userall")) || [];
   const user = userdetail.find((u) => useremaillogin === u.useremailvalue);
@@ -37,7 +47,7 @@ function saveSettings() {
     const name = nameInput.value.trim();
     if (!name) return;
 
-    const useremaillogin = localStorage.getItem("loggedUserEmail");
+    const useremaillogin = sessionStorage.getItem(AUTH_KEY);
     const userdetail = JSON.parse(localStorage.getItem("userall")) || [];
     const userIndex = userdetail.findIndex((u) => useremaillogin === u.useremailvalue);
 
@@ -51,6 +61,7 @@ function saveSettings() {
 }
 
 requireLogin();
+installAuthGuards();
 setlogout();
 setInitialName();
 saveSettings();

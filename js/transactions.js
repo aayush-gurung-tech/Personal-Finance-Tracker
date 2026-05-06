@@ -4,10 +4,13 @@ const exportbtn = document.querySelector("#export-transactions");
 const importbtn = document.querySelector("#import-transactions");
 const clearbtn = document.querySelector("#clear-transactions");
 const fileinput = document.querySelector("#transactions-file");
+const AUTH_KEY = "authUserEmail";
+
+if (transitiontable) transitiontable.classList.add("has-action");
 
 function requireLogin() {
-  const useremaillogin = localStorage.getItem("loggedUserEmail");
-  if (!useremaillogin) location.href = "login.html";
+  const useremaillogin = sessionStorage.getItem(AUTH_KEY);
+  if (!useremaillogin) location.replace("login.html");
   return useremaillogin || "";
 }
 
@@ -15,9 +18,18 @@ function setlogout() {
   if (!logoutbtn) return;
   logoutbtn.addEventListener("click", (e) => {
     e.preventDefault();
-    localStorage.removeItem("loggedUserEmail");
-    location.href = "login.html";
+    localStorage.removeItem("loggedUserEmail"); // legacy key cleanup
+    sessionStorage.clear();
+    location.replace("login.html");
   });
+}
+
+function installAuthGuards() {
+  const check = () => {
+    if (!sessionStorage.getItem(AUTH_KEY)) location.replace("login.html");
+  };
+  window.addEventListener("pageshow", check);
+  window.addEventListener("popstate", check);
 }
 
 function formatMoney(value) {
@@ -212,6 +224,7 @@ renderTableHead();
 addTransactionFromQuery();
 renderTransactions();
 requireLogin();
+installAuthGuards();
 setlogout();
 setDeleteHandler();
 setExport();

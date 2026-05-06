@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Goals - Flux Finance</title>
+    <title>Budgets - Flux Finance</title>
     <link rel="icon" type="image/png" href="asserts/logo.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="asserts/logo.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="asserts/logo.png" />
@@ -45,11 +45,11 @@
           <a class="dash-link" href="transactions.html"
             ><i class="fa-solid fa-arrow-right-arrow-left"></i>Transactions</a
           >
-          <a class="dash-link active" href="goals.html"
-            ><i class="fa-solid fa-flag"></i>Goals</a
-          >
-          <a class="dash-link" href="budgets.html"
+          <a class="dash-link active" href="budgets.html"
             ><i class="fa-solid fa-wallet"></i>Budgets</a
+          >
+          <a class="dash-link" href="goals.html"
+            ><i class="fa-solid fa-flag"></i>Goals</a
           >
           <a class="dash-link" href="settings.html"
             ><i class="fa-solid fa-gear"></i>Settings</a
@@ -61,84 +61,110 @@
 
         <section class="dash-main">
           <div class="dash-page-title">
-            <div class="muted small">Goals</div>
-            <div class="dash-title">Stay focused</div>
+            <div class="muted small">Budgets</div>
+            <div class="dash-title">Plan your spending</div>
           </div>
 
-          <div class="panel mt12">
+          <div class="dash-kpis budget-kpis">
+            <div class="kpi kpi-blue">
+              <div class="muted small">Total Budget</div>
+              <div class="kpi-value" id="budget-total">$0.00</div>
+              <div class="kpi-sub muted" id="budget-total-sub">This period</div>
+            </div>
+            <div class="kpi kpi-red">
+              <div class="muted small">Spent</div>
+              <div class="kpi-value" id="budget-spent">$0.00</div>
+              <div class="kpi-sub muted" id="budget-spent-sub">This period</div>
+            </div>
+            <div class="kpi kpi-green">
+              <div class="muted small">Remaining</div>
+              <div class="kpi-value" id="budget-remaining">$0.00</div>
+              <div class="kpi-sub muted" id="budget-remaining-sub">This period</div>
+            </div>
+          </div>
+
+          <div class="panel mt12" id="budget-create-panel">
             <div class="panel-head">
-              <h3>Create Goal</h3>
-              <button class="btn btn-ghost" id="toggle-goal-form" type="button">
-                <i class="fa-solid fa-plus"></i>Add Goal
+              <h3>Create Budget</h3>
+              <button class="btn btn-ghost" id="toggle-budget-form" type="button">
+                <i class="fa-solid fa-plus"></i>Add Budget
               </button>
             </div>
-            <form class="simple-form" id="goal-form" hidden>
-              <label class="field">
-                <span>Goal name</span>
-                <input type="text" class="goal-name" placeholder="Emergency Fund" required />
-              </label>
+
+            <form class="simple-form budget-form" id="budget-form" hidden>
               <label class="field">
                 <span>Category</span>
-                <select class="goal-category" required>
+                <select id="budget-category" required>
                   <option value="">Select</option>
-                  <option>Savings</option>
-                  <option>Debt</option>
-                  <option>Travel</option>
+                  <option>Food &amp; Dining</option>
+                  <option>Transportation</option>
+                  <option>Housing/Rent</option>
+                  <option>Utilities</option>
+                  <option>Shopping</option>
+                  <option>Entertainment</option>
+                  <option>Healthcare</option>
                   <option>Education</option>
-                  <option>Health</option>
-                  <option>Other</option>
+                  <option>Business</option>
+                  <option>Travel</option>
+                  <option>Subscriptions</option>
+                  <option>Gifts</option>
+                  <option>Savings</option>
+                  <option>Others</option>
                 </select>
               </label>
               <label class="field">
-                <span>Target amount</span>
-                <input type="number" class="goal-target" placeholder="1000" required />
+                <span>Period</span>
+                <select id="budget-period" required>
+                  <option value="monthly">Monthly</option>
+                  <option value="weekly">Weekly</option>
+                </select>
               </label>
               <label class="field">
-                <span>Current amount</span>
-                <input type="number" class="goal-current" placeholder="0" required />
+                <span>Amount</span>
+                <input
+                  id="budget-amount"
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  placeholder="e.g. 250"
+                  required
+                />
               </label>
-              <label class="field">
-                <span>Target date</span>
-                <input type="date" class="goal-date" required />
-              </label>
-              <label class="field">
-                <span>Monthly contribution</span>
-                <input type="number" class="goal-monthly" placeholder="50" required />
-              </label>
-              <label class="field">
-                <span>Notes</span>
-                <input type="text" class="goal-notes" placeholder="Short note (optional)" />
-              </label>
-              <button class="btn btn-primary" type="submit">Save Goal</button>
+              <div class="budget-actions">
+                <button class="btn btn-primary" type="submit">
+                  <i class="fa-solid fa-plus"></i>Create Budget
+                </button>
+              </div>
             </form>
           </div>
 
           <div class="panel mt12">
             <div class="panel-head">
-              <h3>Your Goals</h3>
+              <h3>Your Budgets</h3>
               <div>
-                <button class="btn btn-ghost" id="export-goals" type="button">
+                <button class="btn btn-ghost" id="export-budgets" type="button">
                   <i class="fa-solid fa-file-export"></i>Export
                 </button>
-                <button class="btn btn-ghost" id="import-goals" type="button">
+                <button class="btn btn-ghost" id="import-budgets" type="button">
                   <i class="fa-solid fa-file-import"></i>Import
                 </button>
-                <button class="btn btn-ghost" id="clear-goals" type="button">
+                <button class="btn btn-ghost" id="clear-budgets" type="button">
                   <i class="fa-solid fa-trash"></i>Clear
                 </button>
                 <input
                   type="file"
-                  id="goals-file"
+                  id="budgets-file"
                   accept="application/json"
                   style="display: none"
                 />
               </div>
             </div>
-            <div class="table goals-table" id="goals-table"></div>
+
+            <div class="table budget-table" id="budgets-table"></div>
           </div>
         </section>
       </div>
     </main>
-    <script src="js/goals.js"></script>
+    <script src="js/budgets.js"></script>
   </body>
 </html>

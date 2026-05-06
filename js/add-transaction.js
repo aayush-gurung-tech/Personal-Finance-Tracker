@@ -6,10 +6,11 @@ const categoryInput = document.querySelector(".Category");
 const dateInput = document.querySelector("#dateid");
 const descriptionInput = document.querySelector(".description");
 const logoutbtn = document.querySelector(".dash-header-actions a");
+const AUTH_KEY = "authUserEmail";
 
 function requireLogin() {
-  const useremaillogin = localStorage.getItem("loggedUserEmail");
-  if (!useremaillogin) location.href = "login.html";
+  const useremaillogin = sessionStorage.getItem(AUTH_KEY);
+  if (!useremaillogin) location.replace("login.html");
   return useremaillogin || "";
 }
 
@@ -17,9 +18,18 @@ function setlogout() {
   if (!logoutbtn) return;
   logoutbtn.addEventListener("click", (e) => {
     e.preventDefault();
-    localStorage.removeItem("loggedUserEmail");
-    location.href = "login.html";
+    localStorage.removeItem("loggedUserEmail"); // legacy key cleanup
+    sessionStorage.clear();
+    location.replace("login.html");
   });
+}
+
+function installAuthGuards() {
+  const check = () => {
+    if (!sessionStorage.getItem(AUTH_KEY)) location.replace("login.html");
+  };
+  window.addEventListener("pageshow", check);
+  window.addEventListener("popstate", check);
 }
 
 function saveTransaction() {
@@ -70,4 +80,5 @@ if (transitionform) {
 }
 
 requireLogin();
+installAuthGuards();
 setlogout();
