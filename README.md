@@ -29,7 +29,8 @@ Track income/expenses, view a live-updating dashboard, and manage your savings g
 
 Landing(![landing page](asserts/image.png))
 
-Dashboard![dashboard page](asserts/image-1.png)
+Dashboard![dashboard page]<img width="1761" height="903" alt="image" src="https://github.com/user-attachments/assets/e1219b85-c217-42b1-aea0-3705355851fa" />
+
 
 
 
